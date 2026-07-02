@@ -1,12 +1,24 @@
 {
   "name": "artic-health-companion",
   "version": "1.0.0",
+  "private": true,
   "description": "ARTIC Health Companion is an AI-powered digital healthcare ecosystem for patient management, clinician collaboration, and future-ready medical innovation.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:frontend": "npm --workspace apps/frontend run dev",
+    "build:frontend": "npm --workspace apps/frontend run build",
+    "start:frontend": "npm --workspace apps/frontend run start",
+    "dev:backend": "npm --workspace apps/backend run dev",
+    "start:backend": "npm --workspace apps/backend run start"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "mobile/*",
+    "types/*"
+  ],
   "author": "ARTIC LTD",
   "license": "ISC",
   "dependencies": {

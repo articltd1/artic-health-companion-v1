@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme = "dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/select2.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARTIC Health Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/select2.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-md bg-body-tertiary p-0">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="/images/logo.png" alt="logo" height="45"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/news">News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/predict-disease">Disease-Prediction</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/doctors">Contact-Doctors</a>
-              </li>
-            </ul>
-            <a href="/profile" class="btn btn-primary" role="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 17 17">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-              </svg> Profile
-            </a>
-          </div>
-        </div>
-      </nav>
+<body class="app-shell">
+  <aside class="app-shell__sidebar" aria-label="Primary navigation">
+    <a href="/" class="sidebar-brand">
+      <img src="/images/logo.png" alt="ARTIC logo" class="brand-logo" />
+      <div>
+        <div class="brand-name">ARTIC</div>
+        <div class="brand-slogan">Health Companion</div>
+      </div>
+    </a>
 
-      <main>
+    <nav id="primary-navigation" class="sidebar-nav">
+      <a href="/" class="sidebar-link active">
+        <span class="sidebar-link__icon">🏠</span>
+        <span>Home</span>
+      </a>
+      <a href="/doctors" class="sidebar-link">
+        <span class="sidebar-link__icon">🩺</span>
+        <span>Doctors</span>
+      </a>
+      <a href="/user-appointments" class="sidebar-link">
+        <span class="sidebar-link__icon">📅</span>
+        <span>Appointments</span>
+      </a>
+      <a href="/predict-disease" class="sidebar-link">
+        <span class="sidebar-link__icon">🧠</span>
+        <span>Disease Predictor</span>
+      </a>
+      <a href="/news" class="sidebar-link">
+        <span class="sidebar-link__icon">📰</span>
+        <span>Health News</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">AI-guided care built for modern health journeys.</div>
+  </aside>
+
+  <div class="app-shell__content">
+    <header class="app-header">
+      <button type="button" class="sidebar-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span>
+      </button>
+      <div class="app-header__title">
+        <strong>ARTIC Health Companion</strong>
+        <span class="app-header__meta">Modern medical intelligence for patients and clinicians.</span>
+      </div>
+      <div class="app-header__actions">
+        <a href="/profile" class="action-pill">Profile</a>
+      </div>
+    </header>
+
+    <main class="app-main">

@@ -28,6 +28,19 @@ To become Africa's leading AI-powered healthcare ecosystem, empowering patients,
 ## Project Architecture
 ARTIC Health Companion is structured as a modular Node.js/Express application with a PostgreSQL backend, EJS front-end rendering, and a layered service architecture. See `PROJECT_ARCHITECTURE.md` for detailed system diagrams.
 
+## Monorepo Layout
+The repository is now organized as a monorepo to support future multi-platform expansion:
+
+- `apps/`
+  - `apps/frontend/` — Next.js frontend application
+  - `apps/backend/` — Express API backend
+- `mobile/` — mobile application workspace and future native apps
+- `packages/ui/` — shared UI library for web and mobile components
+- `packages/shared/` — shared utilities and cross-platform helpers
+- `types/` — shared TypeScript definitions and type contracts
+- `docs/` — product and engineering documentation
+- `infrastructure/` — deployment, CI/CD, and environment configuration
+
 ## Technology Stack
 - Backend: Node.js, Express, Passport
 - Frontend: EJS, Bootstrap, jQuery, Select2
