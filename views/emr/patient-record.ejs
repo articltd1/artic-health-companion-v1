@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Medical Record</title>
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1>Patient Medical Record</h1>
+      <% if (!medicalRecord) { %>
+        <div class="alert alert-warning">No medical record was found for this patient.</div>
+      <% } else { %>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Medical Record</h2>
+            <p><strong>Record ID:</strong> <%= medicalRecord.medical_record_id %></p>
+            <p><strong>Patient ID:</strong> <%= medicalRecord.patient_id %></p>
+            <p><strong>Primary Doctor:</strong> <%= medicalRecord.primary_doctor_id || 'Not assigned' %></p>
+            <p><strong>Status:</strong> <%= medicalRecord.record_status %></p>
+            <p><strong>Summary:</strong> <%= medicalRecord.summary || 'No summary provided' %></p>
+            <p><strong>Created At:</strong> <%= new Date(medicalRecord.created_at).toLocaleString() %></p>
+            <p><strong>Updated At:</strong> <%= new Date(medicalRecord.updated_at).toLocaleString() %></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Visit Timeline</h2>
+            <% if (!visits || visits.length === 0) { %>
+              <div class="alert alert-info">No visits have been recorded for this medical record yet.</div>
+            <% } else { %>
+              <div class="list-group">
+                <% visits.forEach(visit => { %>
+                  <div class="list-group-item mb-3">
+                    <p><strong>Visit Date:</strong> <%= new Date(visit.visit_date).toLocaleString() %></p>
+                    <p><strong>Visit Type:</strong> <%= visit.visit_type || 'N/A' %></p>
+                    <p><strong>Doctor ID:</strong> <%= visit.doctor_id || 'N/A' %></p>
+                    <p><strong>Reason:</strong> <%= visit.reason || 'Not provided' %></p>
+                    <p><strong>Summary:</strong> <%= visit.encounter_summary || 'No summary provided' %></p>
+                    <p><strong>Follow-up Instructions:</strong> <%= visit.follow_up_instructions || 'None' %></p>
+                  </div>
+                <% }) %>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

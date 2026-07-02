@@ -8,6 +8,7 @@ import requestLogger from './src/common/middleware/request-logger.js';
 import errorHandler from './src/common/middleware/error-handler.js';
 import userRoutes from './src/routes/user.routes.js';
 import doctorRoutes from './src/routes/doctor.routes.js';
+import emrRoutes from './src/emr/routes/emr.routes.js';
 
 const app = express();
 const port = config.port;
@@ -33,6 +34,7 @@ app.use(passport.session());
 
 app.use('/', userRoutes);
 app.use('/doctor', doctorRoutes);
+app.use('/emr', emrRoutes);
 
 app.use(errorHandler);
 
