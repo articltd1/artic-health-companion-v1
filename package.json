@@ -1,0 +1,32 @@
+{
+  "name": "artic-health-companion",
+  "version": "1.0.0",
+  "description": "ARTIC Health Companion is an AI-powered digital healthcare ecosystem for patient management, clinician collaboration, and future-ready medical innovation.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ARTIC LTD",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cjs": "^0.0.11",
+    "dotenv": "^17.4.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "joi": "^18.2.3",
+    "jquery": "^3.7.1",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.11.3",
+    "puppeteer": "^22.6.5",
+    "select2": "^4.1.0-rc.0",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

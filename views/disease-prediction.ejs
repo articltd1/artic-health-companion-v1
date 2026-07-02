@@ -1,0 +1,43 @@
+<%- include("partials/header.ejs") %>
+
+<% if(locals.error) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= error %></strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<div class="container p-3 mt-2">
+  <h2>Fill the form below:</h2>
+  <form id="diseaseForm" class="form-container row g-3 p-3 mt-4" method="POST" action="/predict-disease">
+      <div class="col-md-12">
+          <label for="Symptoms" class="form-label">Symptoms</label>
+          <select id="Symptoms" name="Symptoms[]" class="form-select" multiple="multiple"></select>
+      </div>
+      <div class="col-md-4">
+          <label for="Gender" class="form-label">Gender</label>
+          <select name="gender" id="Gender" class="form-select">
+              <option selected disabled>Select...</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+      </div>
+      <div class="col-md-4">
+          <label for="age" class="form-label">Year Of Birth</label>
+          <input type="number" class="form-control" name="yearOfBirth" id="age" required>
+      </div>
+      <div class="col-12 p-2 mb-1">
+          <button type="submit" class="btn btn-primary col-2">Submit Details</button>
+      </div>
+  </form>
+
+  <div id="resultContainer" class="mt-4">
+    <!-- Diseases will be hree -->
+  </div>
+  <div id="articlesContainer">
+    <!-- Articles will be dynamically added here -->
+  </div>
+
+  </div>
+
+<%- include("partials/footer.ejs") %>

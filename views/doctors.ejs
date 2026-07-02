@@ -1,0 +1,84 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container mt-3">
+  <h1 class="display-5 fw-bold text-center mt-1">List Of DOCTORS</h1>
+  <a href="/user-appointments" class="btn btn-success">My Appointments</a>
+</div>
+<div class="container">
+  <div class="row">
+    <% doctors.forEach(doctor => { %>
+      <div class="col-md-4 mt-4">
+        <div class="card mb-4">
+          <img src="https://th.bing.com/th/id/R.ddc788f82b8bc48a6205d37685f9f032?rik=Iyfmk6Nlff3dig&riu=http%3a%2f%2forientalbalance.com%2fwp-content%2fuploads%2f2014%2f08%2fdoctor.jpg&ehk=kIbXvFvLVW1Pty3YLYyep%2fu6mDAfsOGweuL0EG4vglw%3d&risl=1&pid=ImgRaw&r=0" class="card-img-top newsImage" alt="image">
+          <div class="card-body">
+            <h5 class="card-title"><%= doctor.name %></h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <strong>Specialization:</strong> <%= doctor.specialization %>
+              </li>
+              <li class="list-group-item">
+                <strong>Contact Number:</strong> <%= doctor.contact_number %>
+              </li>
+            </ul>
+            <button class="btn btn-primary book-appointment" data-bs-toggle="modal" data-bs-target="#appointmentModal" data-doctor-id="<%= doctor.doctor_id %>">Book Appointment</button>          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="appointmentModalLabel">Book Appointment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="/book-appointment" method="post">
+          <input type="hidden" name="doctor_id" id="doctor_id" value="">
+          <input type="hidden" name="patient_id" value="<%= user_id %>">
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+
+          <label for="time">Time:</label>
+          <input type="time" id="time" name="time" required>
+
+          <label for="problem">Problem Description:</label>
+          <textarea id="problem" name="problem" rows="4" required></textarea>
+          <button type="submit" class="btn btn-primary">Submit Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</ul>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const appointmentModal = document.getElementById('appointmentModal');
+    const doctorIdInput = document.getElementById('doctor_id');
+
+    document.querySelectorAll('.book-appointment').forEach(button => {
+      button.addEventListener('click', () => {
+        const doctorId = button.getAttribute('data-doctor-id');
+        if (doctorIdInput) {
+          doctorIdInput.value = doctorId;
+        }
+      });
+    });
+
+    if (appointmentModal) {
+      appointmentModal.addEventListener('hidden.bs.modal', () => {
+        if (doctorIdInput) {
+          doctorIdInput.value = '';
+        }
+      });
+    }
+  });
+</script>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+    <% if(locals.news) { %>
+        <div class="d-flex flex-row flex-wrap justify-content-around mt-5 container">
+            <% for(let i = 0; i < news.length; i++) { %>
+                <div class="card mb-5 news-container" style="width: 20rem;">
+                    <img src="<%= news[i].urlToImage %>" class="card-img-top newsImage" alt="image">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title"><%= news[i].title %></h5>
+                        <p class="card-text"> <%= news[i].content != null ? news[i].content.slice(0,120) : "" %>... </p>
+                        <a href="<%= news[i].url %>" class="btn btn-danger mt-auto">Read Full Article</a>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+
+<%- include("partials/footer.ejs") %>

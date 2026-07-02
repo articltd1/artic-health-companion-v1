@@ -1,0 +1,89 @@
+.form-container {
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.201);
+}
+
+.news-container {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.137);
+}
+
+.newsImage {
+    object-fit: cover;
+    height: 200px;
+}
+
+.background {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 95vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.intro {
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+
+.login-signup-form {
+    background-color: rgba(255, 255, 255, 0.861);
+    width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.201);
+}
+
+.chat-container {
+    max-width: 470px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.chat-messages {
+    padding: 10px;
+    height: 370px;
+    overflow-y: scroll;
+}
+.user-input {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    outline: none;
+}
+.send-button {
+    width: calc(100% - 20px);
+    margin: 10px;
+}
+.chatbot-btn {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
