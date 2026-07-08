@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import securityHeaders from '../../../src/common/middleware/security-headers.js';
 import healthRoutes from './routes/health.routes.js';
 import authRoutes from './routes/auth.routes.js';
 import patientRoutes from './routes/patient.routes.js';
@@ -15,6 +16,8 @@ app.use(cors({
   origin: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
   credentials: true,
 }));
+// Apply lightweight security headers for API responses
+app.use(securityHeaders);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
